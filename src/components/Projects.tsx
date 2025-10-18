@@ -5,13 +5,40 @@ import { Button } from "@/components/ui/button";
 const Projects = () => {
   const projects = [
     {
-      title: "Cosmos Delivery",
+      title: "Cosmos Delivery - Admin Dashboard",
       period: "Octobre 2024 - Décembre 2024",
       organization: "Codex Junior Entreprise",
-      description: "Application de gestion et suivi des livraisons développée pour un client réel. En tant que Scrum Master de l'équipe, j'ai participé au développement fullstack en contribuant au front-end React, au back-end Express.js et à la base de données PostgreSQL.",
-      technologies: ["React", "Express.js", "PostgreSQL", "Agile Scrum"],
-      role: "Scrum Master & Développeur Fullstack",
-      github: "#" // Placeholder
+      description: "Tableau de bord administratif moderne et interactif pour Cosmos Delivery afin de rationaliser la logistique, l'analyse et la gestion des opérations. En tant que Scrum Master et développeur frontend, j'ai créé une interface riche en données avec des graphiques interactifs, des animations fluides et un design responsive.",
+      technologies: ["React", "Tailwind CSS", "Recharts", "Framer Motion", "Axios"],
+      role: "Scrum Master & Développeur Frontend",
+      github: "https://github.com/MoemenF-03/admin-dashboard-REACT"
+    },
+    {
+      title: "Moteur de Recherche d'Images Multi-Descripteurs",
+      period: "Projet Académique",
+      organization: "ISI Ariana",
+      description: "Système complet de recherche d'images utilisant plusieurs descripteurs pour la récupération d'images basée sur le contenu (CBIR). Le système permet aux utilisateurs de choisir parmi différentes méthodes d'extraction de caractéristiques : histogrammes couleur/niveaux de gris, corrélogramme et deep features (VGG16 CNN).",
+      technologies: ["Python", "TensorFlow", "OpenCV", "Gradio", "NumPy", "scikit-image"],
+      role: "Développeur",
+      github: "https://github.com/MoemenF-03/Image-Search-Engine-with-Multiple-Descriptors"
+    },
+    {
+      title: "Système de Gestion de Location de Voitures",
+      period: "Projet Académique",
+      organization: "ISI Ariana",
+      description: "Application web complète de gestion de location de voitures développée en PHP et MySQL. Les utilisateurs peuvent parcourir les véhicules disponibles, réserver des voitures et gérer leurs réservations. L'administrateur dispose d'un tableau de bord avec statistiques pour gérer les véhicules, utilisateurs et réservations.",
+      technologies: ["PHP", "MySQL", "HTML5", "CSS3", "Bootstrap", "JavaScript"],
+      role: "Développeur Full-Stack",
+      github: "https://github.com/MoemenF-03/car_rental_FULLSTACK-PHP_MYSQL_BOOTSTRAP"
+    },
+    {
+      title: "Application de Gestion de Contacts",
+      period: "Projet Académique",
+      organization: "ISI Ariana",
+      description: "Application desktop pour la gestion de contacts institutionnels construite avec PyQt5. Le système offre une gestion complète des contacts avec authentification, permettant aux utilisateurs d'ajouter, modifier, afficher et supprimer des contacts avec validation des données et sécurité.",
+      technologies: ["Python", "PyQt5", "Qt Designer", "CSV"],
+      role: "Développeur",
+      github: "https://github.com/MoemenF-03/Contact-Manager-Application"
     }
   ];
 
