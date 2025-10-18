@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,13 +18,13 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "Accueil" },
-    { href: "#about", label: "À propos" },
-    { href: "#education", label: "Formation" },
-    { href: "#experience", label: "Expérience" },
-    { href: "#projects", label: "Projets" },
-    { href: "#skills", label: "Compétences" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: t("nav.home") },
+    { href: "#about", label: t("nav.about") },
+    { href: "#education", label: t("nav.education") },
+    { href: "#experience", label: t("nav.experience") },
+    { href: "#projects", label: t("nav.projects") },
+    { href: "#skills", label: t("nav.skills") },
+    { href: "#contact", label: t("nav.contact") },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -58,6 +60,31 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all group-hover:w-full"></span>
               </a>
             ))}
+            
+            {/* Language Switcher */}
+            <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`text-sm font-medium px-2 py-1 rounded transition-colors ${
+                  language === "en" 
+                    ? "text-primary bg-primary/10" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => setLanguage("fr")}
+                className={`text-sm font-medium px-2 py-1 rounded transition-colors ${
+                  language === "fr" 
+                    ? "text-primary bg-primary/10" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                FR
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -84,6 +111,30 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
+            
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center gap-2 pt-4 border-t border-border">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`text-sm font-medium px-3 py-2 rounded transition-colors ${
+                  language === "en" 
+                    ? "text-primary bg-primary/10" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                English
+              </button>
+              <button
+                onClick={() => setLanguage("fr")}
+                className={`text-sm font-medium px-3 py-2 rounded transition-colors ${
+                  language === "fr" 
+                    ? "text-primary bg-primary/10" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                Français
+              </button>
+            </div>
           </div>
         )}
       </div>

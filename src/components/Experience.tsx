@@ -1,28 +1,31 @@
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Experience = () => {
+  const { t } = useLanguage();
+  
   const experiences = [
     {
-      title: "Responsable du Pôle Projet",
-      company: "Codex Junior Entreprise",
-      location: "Ariana, Tunisie",
-      period: "Août 2025 - Présent",
+      title: t("experience.role1"),
+      company: t("experience.company1"),
+      location: t("experience.location1"),
+      period: t("experience.period1"),
       description: [
-        "Supervision et pilotage des projets techniques, collecte des besoins clients et rédaction de la documentation (cahier des charges, contrat, spécifications ...).",
-        "Coordination des chefs de projets et suivi des méthodologies agiles pour garantir qualité et respect des délais."
+        t("experience.desc1_1"),
+        t("experience.desc1_2")
       ],
       skills: ["Gestion de Projet", "Méthodologie Agile", "Leadership", "Documentation"]
     },
     {
-      title: "Stagiaire en Intelligence Artificielle & Business Intelligence",
-      company: "Sagemcom",
-      location: "Ben Arous, Tunisie",
-      period: "Juin 2025 - Août 2025",
+      title: t("experience.role2"),
+      company: t("experience.company2"),
+      location: t("experience.location2"),
+      period: t("experience.period2"),
       description: [
-        "Développement et intégration de solutions IA et BI, collecte et traitement de données avec Python, Pandas et SQL pour optimiser les tableaux de bord.",
-        "Conception et déploiement de modèles de prédiction, dont régression linéaire, arbres de décision et random forest, pour automatiser et améliorer la prise de décision.",
-        "Création d'une application Streamlit pour prédire des valeurs à partir d'entrées utilisateur sur la base de modèles entraînés dans Jupyter Notebook."
+        t("experience.desc2_1"),
+        t("experience.desc2_2"),
+        t("experience.desc2_3")
       ],
       skills: ["Python", "Machine Learning", "Streamlit", "SQL", "Pandas", "Power BI"]
     }
@@ -33,7 +36,7 @@ const Experience = () => {
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-4xl font-bold mb-12 text-center">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Expériences Professionnelles
+            {t("experience.title")}
           </span>
         </h2>
 
@@ -76,7 +79,7 @@ const Experience = () => {
                 </ul>
                 
                 <div className="pt-4">
-                  <h4 className="text-sm font-semibold text-muted-foreground mb-3">Compétences utilisées:</h4>
+                  <h4 className="text-sm font-semibold text-muted-foreground mb-3">{t("experience.skills1")}</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map((skill, i) => (
                       <span 

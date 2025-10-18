@@ -1,24 +1,27 @@
 import { Mail, Phone, Github, Linkedin, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+  
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
+      label: t("contact.email"),
       value: "ferjanimoemen2003@gmail.com",
       href: "mailto:ferjanimoemen2003@gmail.com"
     },
     {
       icon: Phone,
-      label: "Téléphone",
+      label: t("contact.phone"),
       value: "+216 20 560 657",
       href: "tel:+21620560657"
     },
     {
       icon: MapPin,
-      label: "Localisation",
+      label: t("contact.location"),
       value: "Mornag, Ben Arous, Tunisie",
       href: "#"
     }
@@ -42,20 +45,19 @@ const Contact = () => {
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-4xl font-bold mb-12 text-center">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Contact
+            {t("contact.title")}
           </span>
         </h2>
 
         <Card className="bg-card/50 backdrop-blur-sm border-border animate-fade-in">
           <CardContent className="p-8 space-y-8">
             <div className="text-center space-y-2">
-              <h3 className="text-2xl font-bold">Restons en contact!</h3>
+              <h3 className="text-2xl font-bold">{t("contact.subtitle")}</h3>
               <p className="text-muted-foreground">
-                N'hésitez pas à me contacter pour toute opportunité de stage PFE 2025 ou collaboration
+                {t("contact.description")}
               </p>
             </div>
 
-            {/* Contact Information */}
             <div className="grid md:grid-cols-3 gap-6">
               {contactInfo.map((contact, index) => (
                 <a
@@ -75,9 +77,8 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
             <div className="pt-6 border-t border-border">
-              <p className="text-center text-sm text-muted-foreground mb-4">Suivez-moi sur</p>
+              <p className="text-center text-sm text-muted-foreground mb-4">{t("contact.followMe")}</p>
               <div className="flex justify-center gap-4">
                 {socialLinks.map((social, index) => (
                   <Button
@@ -102,7 +103,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* CTA */}
             <div className="text-center pt-6">
               <Button 
                 size="lg" 
@@ -111,7 +111,7 @@ const Contact = () => {
               >
                 <a href="mailto:ferjanimoemen2003@gmail.com" className="flex items-center gap-2">
                   <Mail className="w-5 h-5" />
-                  Envoyez-moi un message
+                  {t("contact.sendMessage")}
                 </a>
               </Button>
             </div>

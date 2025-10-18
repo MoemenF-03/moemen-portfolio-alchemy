@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { Code, Database, Wrench, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,7 +28,7 @@ const Skills = () => {
   const skillCategories = [
     {
       icon: Code,
-      title: "Langages de Programmation",
+      title: t("skills.languages"),
       skills: [
         { name: "Python", level: 90 },
         { name: "Java", level: 85 },
@@ -37,7 +39,7 @@ const Skills = () => {
     },
     {
       icon: Wrench,
-      title: "Frameworks & Outils",
+      title: t("skills.frameworks"),
       skills: [
         { name: "React", level: 85 },
         { name: "Node.js", level: 80 },
@@ -48,7 +50,7 @@ const Skills = () => {
     },
     {
       icon: Database,
-      title: "Bases de Données & BI",
+      title: t("skills.databases"),
       skills: [
         { name: "PostgreSQL", level: 85 },
         { name: "MySQL", level: 80 },
@@ -59,7 +61,7 @@ const Skills = () => {
     },
     {
       icon: Users,
-      title: "Méthodologies & Soft Skills",
+      title: t("skills.methodologies"),
       skills: [
         { name: "Agile Scrum", level: 90 },
         { name: "Machine Learning", level: 80 },
@@ -75,7 +77,7 @@ const Skills = () => {
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl font-bold mb-12 text-center">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Compétences
+            {t("skills.title")}
           </span>
         </h2>
 
@@ -117,10 +119,9 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Tools Section */}
         <Card className="mt-8 bg-card/50 backdrop-blur-sm border-border animate-fade-in">
           <CardHeader>
-            <CardTitle className="text-center">Outils & Technologies Supplémentaires</CardTitle>
+            <CardTitle className="text-center">{t("skills.additionalTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap justify-center gap-3">

@@ -1,7 +1,10 @@
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
       {/* Animated background elements */}
@@ -20,10 +23,10 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-2xl md:text-3xl text-muted-foreground font-light">
-              Étudiant en Licence Informatique
+              {t("hero.subtitle")}
             </p>
             <p className="text-xl text-muted-foreground">
-              PFE 2025 - Passionné par l'IA, le développement logiciel et la data science
+              {t("hero.tagline")}
             </p>
             
             {/* Contact Info */}

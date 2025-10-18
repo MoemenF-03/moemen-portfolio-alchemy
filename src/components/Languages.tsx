@@ -1,11 +1,14 @@
 import { Globe } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Languages = () => {
+  const { t } = useLanguage();
+  
   const languages = [
-    { name: "Arabe", level: "Langue maternelle", proficiency: 100 },
-    { name: "Anglais", level: "Avancé", proficiency: 85 },
-    { name: "Français", level: "Intermédiaire", proficiency: 70 }
+    { name: t("languages.arabic"), level: t("languages.arabicLevel"), proficiency: 100 },
+    { name: t("languages.english"), level: t("languages.englishLevel"), proficiency: 85 },
+    { name: t("languages.french"), level: t("languages.frenchLevel"), proficiency: 70 }
   ];
 
   return (
@@ -13,7 +16,7 @@ const Languages = () => {
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-4xl font-bold mb-12 text-center">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Langues
+            {t("languages.title")}
           </span>
         </h2>
 
@@ -23,7 +26,7 @@ const Languages = () => {
               <div className="p-2 bg-primary/10 rounded-lg">
                 <Globe className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>Compétences Linguistiques</CardTitle>
+              <CardTitle>{t("languages.linguistic")}</CardTitle>
             </div>
           </CardHeader>
           <CardContent className="space-y-6">
